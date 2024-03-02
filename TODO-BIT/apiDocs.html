@@ -1,0 +1,220 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <title>IT_Stack Api Docs</title>
+    </head>
+    <body>
+        <h1 class="alert-info text-center">Api Documentation</h1>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>S.No.</th>
+                    <th>Title</th>
+                    <th>Method</th>
+                    <th>URL</th>
+                    <th>Request Format</th>
+                    <th>Request Parameter</th>
+                    <th>Response Sample</th>
+                </tr>
+            </thead>
+            <tbody><td>1.</td>
+                <td>Login</td>
+                <td>POST</td>
+                <td>http://localhost:8989/web/login</td>
+                <td>JSON</td>
+                <td>email,password</td>
+                <td>
+                    Response Success :-<br>
+                    {
+                        "success": true,
+                        "message": "User Logged in successfully!",
+                        "token": "//TOKEN"
+                    }
+                    Response Failed :-<br>
+                    {
+                        success: false,
+                        message: "Unable to log-in"
+                    }
+                </td>
+            </tr>
+            <tr>
+                <tr>
+                    <td>2.</td>
+                    <td>Register User <b></td>
+                    <td>POST</td>
+                    <td>http://localhost:8989/web/register</td>
+                    <td>JSON</td>
+                    <td>fname,lname,email,password</td>
+                    <td>
+                        Response Success :-<br>
+                        {
+                            "success": true,
+                            "message": "User Saved Successfully !!",
+                            "id": "65e1c9be4171523c22fed600"
+                        }<br>
+                        Response Failed :-<br>
+                        { success:false, msg: "Unable to create new User" }
+                    </td>
+                </tr>
+                <tr>
+                    <td>3.</td>
+                    <td>Users List</td>
+                    <td>GET</td>
+                    <td>http://localhost:8989/web/get-user-list</td>
+                    <td>JSON</td>
+                    <td> </td>
+                    <td>
+                        Response Success :-<br>
+                        {
+                            "success": true,
+                            "UserList": [
+                                {
+                                    "_id": "65e069378257f19e41dbb569",
+                                    "fname": "Ritu",
+                                    "lname": "Sharma",
+                                    "email": "ritu@gmailcom",
+                                    "password": "$2b$10$Ou9Qx04qtF13iBtobkLU4OEnyIK9.fhv1/uE1eNexE3/rY7KMSy5q",
+                                    "__v": 0
+                                },
+                                {
+                                   //LIST ITEMS FOLLOWED
+                                }
+                            ]
+                        }<br>
+                        Response Failed :-<br>
+                        {success:false, message: "Unable to get User List" }
+                    </td>
+                </tr>
+                <tr>
+                    <td>4.</td>
+                    <td>Delete User</td>
+                    <td>DELETE</td>
+                    <td>http://localhost:8989/web/delete/:id</td>
+                    <td>JSON</td>
+                    <td></td>
+                    <td>
+                        Response Success :-<br>
+                        {
+                            "success": true,
+                            "message": "Data deleted Successfully",
+                            "delUser": "65e1cc2adadd233b9f5d18c9"
+                        }<br>
+                        Response Failed :-<br>
+                        { success:false, message: "Unable to Delete Data" }
+                    </td>
+                </tr>
+                <tr>
+                    <td>5.</td>
+                    <td>Add Task</td>
+                    <td>POST</td>
+                    <td>http://localhost:8989/api/save</td>
+                    <td>FORM DATA</td>
+                    <td>title,description,completionStatus,image</td>
+                    <td>
+                        Response Success :-<br>
+                        {
+                            "success": true,
+                            "message": "Task Saved Successfully",
+                            "id": "65e1ce68f893899cedd9dae2"
+                        }<br>
+                        Response Failed :-<br>
+                        {success:false, msg: "Unable to create new Task" }
+                    </td>
+                </tr>
+                <tr>
+                    <td>6.</td>
+                    <td>Get Task List</td>
+                    <td>GET</td>
+                    <td>http://localhost:8989/api/get-list</td>
+                    <td>JSON</td>
+                    <td></td>
+                    <td>
+                        Response Success :-<br>
+                        {
+                            "savedTasks": [
+                                {
+                                    "_id": "65e1ce68f893899cedd9dae2",
+                                    "title": "MEETING",
+                                    "description": "OFFICE MEETING AT 8",
+                                    "completionStatus": "PENDING",
+                                    "image": "uploads\\image-1709297256325.jpg",
+                                    "userId": "65e1c9be4171523c22fed600",
+                                    "__v": 0
+                                }
+                            ]
+                        }<br>
+                        Response Failed :-<br>
+                        { success:false,msg: "Unable to get Task List" }
+                    </td>
+                </tr>
+                <tr>
+                    <td>7.</td>
+                    <td>Get Task By Id</td>
+                    <td>GET</td>
+                    <td>http://localhost:8989/api/search/:id</td>
+                    <td>JSON</td>
+                    <td></td>
+                    <td>
+                        Response Success :-<br>
+                        {
+                            "success": true,
+                            "savedTask": {
+                                "_id": "65e1ce68f893899cedd9dae2",
+                                "title": "MEETING",
+                                "description": "OFFICE MEETING AT 8",
+                                "completionStatus": "PENDING",
+                                "image": "uploads\\image-1709297256325.jpg",
+                                "userId": "65e1c9be4171523c22fed600",
+                                "__v": 0
+                            }
+                        }<br>
+                        Response Failed :-<br>
+                        { success:false,message: "Unable to get Task Data" }
+                    </td>
+                </tr>
+                <tr>
+                    <tr>
+                        <td>8.</td>
+                        <td>Update Task</td>
+                        <td>PUT</td>
+                        <td>http://localhost:8989/api/update/:id</td>
+                        <td>FORM DATA</td>
+                        <td>title,description,completionStatus,image</td>
+                        <td>
+                            Response Success :-<br>
+                            {
+                                "success": true,
+                                "message": "Data Updated",
+                                "UpdatedData": {
+                                    "_id": "65e1ce68f893899cedd9dae2",
+                                    "title": "TESTPOST1",
+                                    "description": "TEST AFTER POSTMAN",
+                                    "completionStatus": "LATEST",
+                                    "image": "uploads\\image-1709298436674.jpg"
+                                }
+                            }<br>
+                            Response Failed :-<br>
+                            { success:false,message:"Unable to update Data" }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9.</td>
+                        <td>Delete Task</td>
+                        <td>DELETE</td>
+                        <td>http://localhost:8989/api/delete/:id</td>
+                        <td>JSON</td>
+                        <td></td>
+                        <td>
+                            Response Success :-<br>
+                            {
+                                "success": true,
+                                    "msg": "Data deleted Successfully",
+                                    "delTask": "65e1ce68f893899cedd9dae2"
+                                }<br>
+                            Response Failed :-<br>
+                            { success:false,message:"Unable to Delete Data" }
+                        </td>
+                    </tr>
+                    <tr>
